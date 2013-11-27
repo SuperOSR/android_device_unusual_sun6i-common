@@ -104,8 +104,7 @@ PRODUCT_PACKAGES +=  \
 
 #egl
 PRODUCT_COPY_FILES += \
-       $(call find-copy-subdir-files,*,$(LOCAL_PATH)/prebuild/apkdata/txt2epub,system/txt2epub)  \
-       device/unusual/sun6i-common/egl/pvrsrvctl:system/vendor/bin/pvrsrvctl \
+       $(call find-copy-subdir-files,*,device/unusual/sun6i-common/egl/pvrsrvctl:system/vendor/bin/pvrsrvctl \
        device/unusual/sun6i-common/egl/libusc.so:system/vendor/lib/libusc.so \
        device/unusual/sun6i-common/egl/libglslcompiler.so:system/vendor/lib/libglslcompiler.so \
        device/unusual/sun6i-common/egl/libIMGegl.so:system/vendor/lib/libIMGegl.so \
