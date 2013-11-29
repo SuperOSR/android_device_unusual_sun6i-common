@@ -1,6 +1,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 include device/unusual/sun6i-common/prebuild/tools/tools.mk
+include device/unusual/sun6i-common/BoardConfigCommon.mk
 
 # ext4 filesystem utils
 PRODUCT_PACKAGES += \
