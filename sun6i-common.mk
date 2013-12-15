@@ -120,7 +120,7 @@ PRODUCT_COPY_FILES += \
        device/unusual/sun6i-common/egl/gralloc.sun6i.so:system/vendor/lib/hw/gralloc.sun6i.so \
        device/unusual/sun6i-common/egl/hwcomposer.sun6i.so:system/vendor/lib/hw/hwcomposer.sun6i.so \
        device/unusual/sun6i-common/egl/egl.cfg:system/lib/egl/egl.cfg \
-       device/unusual/sun6i-common/sensors.sh:system/bin/sensors.sh)
+       device/unusual/sun6i-common/sensors.sh:system/bin/sensors.sh
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.strictmode.visual=0 \
