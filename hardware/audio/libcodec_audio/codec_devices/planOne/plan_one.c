@@ -465,7 +465,7 @@ static int record_read_pcm_buf(struct codec_client *client, void* buffer, int by
 int plan_one_init(void)
 {
 	int ret = -1;
-	char prop_value[20];
+	char prop_value[PROPERTY_VALUE_MAX];
 
 	ret = property_get("audio.without.earpiece", prop_value, "0");
 	if (ret > 0)

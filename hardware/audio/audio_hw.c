@@ -799,7 +799,7 @@ static int start_output_stream(struct sunxi_stream_out *out)
 
     ALOGV("start_output_stream: card:%d, port:%d, rate:%d", card, port, out->config.rate);
 
-    out->pcm = pcm_open_req(card, port, PCM_OUT | PCM_MMAP | PCM_NOIRQ, &out->config, DEFAULT_OUT_SAMPLING_RATE);
+    out->pcm = pcm_open(card, port, PCM_OUT | PCM_MMAP | PCM_NOIRQ, &out->config);
 
     if (!pcm_is_ready(out->pcm)) {
         ALOGE("cannot open pcm_out driver: %s", pcm_get_error(out->pcm));
@@ -1308,24 +1308,7 @@ static int start_input_stream(struct sunxi_stream_in *in)
                                         in->config.channels,
                                         in->requested_rate);
 
-	int in_ajust_rate = in->requested_rate;
-	// out/in stream should be both 44.1K serial
-	if (!(in->requested_rate % SAMPLING_RATE_11K))
-	{
-		// OK
-		in_ajust_rate = in->requested_rate;
-	}
-	else
-	{
-		in_ajust_rate = SAMPLING_RATE_11K * in->requested_rate / SAMPLING_RATE_8K;
-		if (in_ajust_rate > SAMPLING_RATE_44K)
-		{
-			in_ajust_rate = SAMPLING_RATE_44K;
-		}
-		ALOGV("out/in stream should be both 44.1K serial, force capture rate: %d", in_ajust_rate);
-	}
-
-	in->pcm = pcm_open_req(0, PORT_CODEC, PCM_IN, &in->config, in_ajust_rate);
+	in->pcm = pcm_open(0, PORT_CODEC, PCM_IN, &in->config);
 
     if (!pcm_is_ready(in->pcm)) {
         ALOGE("cannot open pcm_in driver: %s", pcm_get_error(in->pcm));
@@ -2260,7 +2243,6 @@ static int adev_open_input_stream(struct audio_hw_device *dev,
     // default config
     memcpy(&in->config, &pcm_config_mm_in, sizeof(pcm_config_mm_in));
     in->config.channels = channel_count;
-	in->config.in_init_channels = channel_count;
 
 	ALOGV("to malloc in-buffer: period_size: %d, frame_size: %d",
 		in->config.period_size, audio_stream_frame_size(&in->stream.common));

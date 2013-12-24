@@ -19,7 +19,7 @@ extern struct phone_common_record_ops phone_common_record_ops;
 static int codec_device_detect(void)
 {
     int index = -1, i=-1, ret = 0;
-    char device[20]={0};
+    char device[PROPERTY_VALUE_MAX]={0};
 
     ret = property_get("ro.sw.audio.codec_plan_name", device, "0");
     if(ret <= 0){

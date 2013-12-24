@@ -22,11 +22,7 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 
 LOCAL_SRC_FILES := audio_hw.c audio_iface.c
 
-#ifneq ($(SW_BOARD_HAVE_3G), true)
-#LOCAL_SRC_FILES += audio_ril_stub.c
-#else
-#LOCAL_SHARED_LIBRARIES := libaudio_ril
-#endif
+LOCAL_CFLAGS += -DTARGET_BOARD_FIBER
 
 LOCAL_C_INCLUDES += \
 	external/tinyalsa/include \

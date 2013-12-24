@@ -13,7 +13,7 @@
 static int bp_device_detect(void)
 {
     int index = -1, i=-1, ret = 0;
-    char device[20]={0};
+    char device[PROPERTY_VALUE_MAX]={0};
 
     ret = property_get("ro.sw.audio.bp_device_name", device, "0");
     if(ret <= 0){
