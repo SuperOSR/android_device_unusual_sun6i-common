@@ -31,7 +31,6 @@ PRODUCT_PACKAGES += \
 	libaw_audioa \
 	libswdrm \
 	libstagefright_soft_cedar_h264dec \
-	libfacedetection \
 	libthirdpartstream \
 	libcedarxsftstream \
 	libsunxi_alloc \
@@ -98,7 +97,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES +=  \
    android.softwinner.framework.jar \
    SoftWinnerService.apk \
-   backup/SoftWinnerService.apk \
    libsoftwinner_servers.so \
    libupdatesoftwinner.so \
    updatesoftwinner 

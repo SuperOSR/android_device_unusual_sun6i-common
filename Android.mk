@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter fiber,(TARGET_BOARD_PLATFORM)),)
+ifeq ($(TARGET_BOARD_PLATFORM), fiber)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
