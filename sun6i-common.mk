@@ -89,10 +89,6 @@ PRODUCT_COPY_FILES += \
 	device/unusual/sun6i-common/init.rc:root/init.rc \
 	device/unusual/sun6i-common/init.sun6i.usb.rc:root/init.sun6i.usb.rc
 
-# table core hardware
-PRODUCT_COPY_FILES += \
-    device/unusual/sun6i-common/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
-    
 # softwinner	
 PRODUCT_PACKAGES +=  \
    android.softwinner.framework.jar \
